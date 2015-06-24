@@ -1,0 +1,74 @@
+body {
+    font-family: monospace;
+}
+
+.container {
+    padding: 20px 30px 0;
+    display: flex;
+}
+
+
+.sidebar {
+    flex-basis: 200px;
+    min-width: 150px;
+}
+
+
+.logo {
+    margin: 0 0 30px 0;
+
+    &_text {
+        font-family: Tahoma, Helvetica, sans-serif;
+        margin: 0;
+    }
+
+    &_caption {
+        margin: 0;
+        font-size: 11px;
+    }
+}
+
+
+.author {
+    margin-top: 543px;
+}
+
+
+.mainColumn {
+    flex-grow: 1;
+}
+
+
+.textarea {
+    width: 100%;
+    margin-bottom: 10px;
+
+    &-inputData {
+        height: 300px;
+    }
+
+    &-template {
+        height: 100px;
+    }
+
+    &-outputData {
+        height: 300px;
+    }
+}
+
+
+.inputTextWrapper {
+    display: block;
+}
+
+
+.inputText {
+    &-delimiter {
+        width: 50px;
+    }
+}
+
+
+.inputGroup {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,37 @@
+{
+    "name": "Vinnslu",
+    "version": "0.1.0",
+    "description": "Simple tabular-like data parser",
+    "dependencies": {
+        "jquery": "^2.1.4",
+        "lodash": "^3.8.0",
+        "normalize.css": "^3.0.3"
+    },
+    "devDependencies": {
+        "jasmine": "^2.3.1",
+        "jasmine-node": "^1.14.5",
+        "http-server": "latest",
+        "babelify": "^6.0.2",
+        "babel": "^5.1.13",
+        "browserify": "^9.0.8",
+        "gulp-add-src": "^0.2.0",
+        "gulp-babel": "^5.1.0",
+        "gulp": "^3.8.11",
+        "gulp-concat": "^2.5.2",
+        "gulp-jshint": "^1.10.0",
+        "gulp-postcss": "^5.1.3",
+        "jshint-stylish": "^1.0.2",
+        "autoprefixer-core": "^5.1.11",
+        "postcss-nested": "^0.2.2",
+        "postcss": "^4.1.6",
+        "postcss-simple-vars": "^0.2.4",
+        "vinyl-source-stream": "^1.1.0",
+        "watchify": "^3.2.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/maltsev/vinnslu"
+    },
+    "author": "Kirill Maltsev <maltsevkirill@gmail.com>",
+    "license": "BSD 3-Clause"
+}

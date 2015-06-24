@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Vinnslu</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <h1 class="logo_text">Vinnslu</h1>
+                <p class="logo_caption">Simple tabular-like data parser</p>
+            </div>
+
+            <div class="inputGroup">
+                <label for="rowDelimiterInput">Row delimiter:</label>
+                <span class="inputTextWrapper">/<input type="text" class="inputText inputText-delimiter inputText-rowDelimiter" id="rowDelimiterInput" placeholder="row delimiter" name="rowDelimiter" value="\n">/g</span>
+            </div>
+
+            <div class="inputGroup">
+                <label for="columnDelimiterInput">Column delimiter:</label>
+                <span class="inputTextWrapper">/<input type="text" class="inputText inputText-delimiter inputText-columnDelimiter" id="columnDelimiterInput" placeholder="column delimiter" name="columnDelimiter" value=";">/g</span>
+            </div>
+
+            <div class="author">
+                <a href="https://github.com/maltsev" class="author_name">Kirill Maltsev</a>
+            </div>
+        </div>
+
+        <div class="mainColumn">
+            <textarea class="textarea textarea-inputData" placeholder="Input data" name="inputData"></textarea>
+            <textarea class="textarea textarea-template" placeholder="Template" name="template">{{ a }}&#13;&#10;</textarea>
+            <textarea class="textarea textarea-outputData" name="outputData" placeholder="Output data"></textarea>
+        </div>
+    </div>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>
