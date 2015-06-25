@@ -7,8 +7,9 @@ var gulp = require("gulp"),
     autoprefixer = require("autoprefixer-core"),
     addsrc = require("gulp-add-src"),
     babelify = require("babelify"),
-    jshint = require('gulp-jshint'),
-    stylish = require('jshint-stylish');
+    jshint = require("gulp-jshint"),
+    stylish = require("jshint-stylish"),
+    minifyCss = require("gulp-minify-css");
 
 
 var config = {
@@ -82,6 +83,7 @@ gulp.task("css", function () {
         .pipe(postcss(processors))
         .pipe(addsrc.prepend("./node_modules/normalize.css/normalize.css"))
         .pipe(concat("style.css"))
+        .pipe(minifyCss())
         .pipe(gulp.dest(config.css.dest));
 });
 
