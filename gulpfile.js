@@ -1,5 +1,6 @@
 var gulp = require("gulp"),
     source = require("vinyl-source-stream"),
+    buffer = require("vinyl-buffer"),
     browserify = require("browserify"),
     watchify = require("watchify"),
     concat = require("gulp-concat"),
@@ -9,7 +10,8 @@ var gulp = require("gulp"),
     babelify = require("babelify"),
     jshint = require("gulp-jshint"),
     stylish = require("jshint-stylish"),
-    minifyCss = require("gulp-minify-css");
+    minifyCss = require("gulp-minify-css"),
+    uglify = require("gulp-uglify");
 
 
 var config = {
@@ -38,6 +40,8 @@ gulp.task("browserify", function() {
     return browserify(config.browserify)
         .bundle()
         .pipe(source("main.js"))
+        .pipe(buffer())
+        .pipe(uglify({preserveComments: "some"}))
         .pipe(gulp.dest(config.js.dest));
 });
 
@@ -45,7 +49,7 @@ gulp.task("lint", function () {
     return gulp.src("./js/*.js")
                .pipe(jshint("./.jshintrc"))
                .pipe(jshint.reporter(stylish))
-               .on('error', function() {
+               .on("error", function() {
                    beep();
                });
 })
