@@ -29,7 +29,7 @@ config.browserify = {
     debug: true,
     cache: {},
     packageCache: {},
-    fullPaths: true
+    fullPaths: false
 };
 
 
