@@ -3,12 +3,12 @@
     "version": "0.1.0",
     "description": "Simple tabular-like data parser",
     "dependencies": {
-        "http-server": "latest",
+        "http-server": "latest"
     },
     "devDependencies": {
         "jquery": "^2.1.4",
         "lodash": "^3.8.0",
-        "normalize.css": "^3.0.3"
+        "normalize.css": "^3.0.3",
         "jasmine": "^2.3.1",
         "jasmine-node": "^1.14.5",
         "gulp": "^3.8.11",
