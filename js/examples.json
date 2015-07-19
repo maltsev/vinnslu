@@ -1,0 +1,26 @@
+[
+    {
+        "name": "List",
+        "rowDelimiter": "\\n",
+        "columnDelimiter": ",",
+        "inputData": "sugar, 2 cups\neggs, 4\nsalt, 1 teaspoon\nbaking soda, 1 teaspoon",
+        "template": "- {{ b }} {{ a }}\n"
+    },
+
+    {
+        "name": "SQL-queries",
+        "rowDelimiter": "\\n",
+        "columnDelimiter": ";",
+        "inputData": "1;4;200\n2;9;134\n3;0;0\n4;1;9\n5;11;94\n6;15;934\n7;8;10",
+        "template": "UPDATE goods SET price = {{ c }}, amount = {{ b }} WHERE id  = {{ a }};\n"
+    },
+
+    {
+        "name": "Links",
+        "rowDelimiter": "\\n",
+        "columnDelimiter": " — ",
+        "inputData": "Niels Bohr — 1885\nMarie Curie — 1867\nCharles Darwin — 1809\nAlbert Einstein — 1879\nGalileo Galilei — 1564\nIsaac Newton — 1643\nMax Planck — 1858\nNikola Tesla — 1856\nAlan Turing — 1912\nLeonardo da Vinci — 1452",
+
+        "template": '<a href="https://en.wikipedia.org/wiki/{{ a.replace(/ /g, "_") }}">{{ a }}</a> was born in {{ b }}.<br>\n'
+    }
+]

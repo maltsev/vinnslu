@@ -30,12 +30,16 @@ body {
 
 
 .author {
-    margin-top: 543px;
+    margin-top: 467px;
 }
 
 
 .mainColumn {
     flex-grow: 1;
+}
+
+.examples {
+    width: 110px;
 }
 
 
@@ -70,5 +74,13 @@ body {
 
 
 .inputGroup {
-    margin-bottom: 20px;
+    margin-bottom: $sidebarBlockBottomMargin;
+
+    &-examples {
+        margin-top: calc($sidebarBlockBottomMargin * 2);
+    }
+
+    &_label {
+        display: block;
+    }
 }

@@ -1,5 +1,5 @@
 var $ = require("jquery"),
-    templateEngine = require("lodash/string/template"),
+    _ = require("lodash"),
     functions = require("./functions.js");
 
 var $inputData = $(".textarea-inputData"),
@@ -13,6 +13,37 @@ var $inputData = $(".textarea-inputData"),
 [$inputData, $template, $rowDelimiter, $columnDelimiter].map(function ($el) {
     $el.keyup(render);
 });
+
+
+var examplesData = require("./examples"),
+    $examples = $(".examples");
+
+var examplesHtml = _.reduce(examplesData, function (examplesHtml, data, id) {
+    return examplesHtml + '<option class="examples_item" value="' + id + '">' + data.name + '</option>';
+}, "");
+
+$examples.html(examplesHtml);
+
+$examples.change(function () {
+    var exampleId = $(this).val();
+    renderExample(exampleId);
+});
+
+renderExample(0);
+
+function renderExample(exampleId) {
+    var data = examplesData[exampleId];
+    if (! data) {
+        return;
+    }
+
+    $rowDelimiter.val(data.rowDelimiter || "\n");
+    $columnDelimiter.val(data.columnDelimiter || ";");
+    $inputData.val(data.inputData || "");
+    $template.val(data.template || "");
+
+    render();
+}
 
 
 function render() {
@@ -31,7 +62,7 @@ function render() {
     }
 
     try {
-        var template = templateEngine(templateStr, {interpolate: /{{([\s\S]+?)}}/g});
+        var template = _.template(templateStr, {interpolate: /{{([\s\S]+?)}}/g});
     } catch (e) {
         return;
     }

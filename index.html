@@ -14,13 +14,18 @@
             </div>
 
             <div class="inputGroup">
-                <label for="rowDelimiterInput">Row delimiter:</label>
-                <span class="inputTextWrapper">/<input type="text" class="inputText inputText-delimiter inputText-rowDelimiter" id="rowDelimiterInput" placeholder="row delimiter" name="rowDelimiter" value="\n">/g</span>
+                <label class="inputGroup_label" for="rowDelimiterInput">Row delimiter:</label>
+                <span class="inputTextWrapper">/<input type="text" class="inputText inputText-delimiter inputText-rowDelimiter" id="rowDelimiterInput" placeholder="row delimiter" name="rowDelimiter" value="">/g</span>
             </div>
 
             <div class="inputGroup">
-                <label for="columnDelimiterInput">Column delimiter:</label>
-                <span class="inputTextWrapper">/<input type="text" class="inputText inputText-delimiter inputText-columnDelimiter" id="columnDelimiterInput" placeholder="column delimiter" name="columnDelimiter" value=";">/g</span>
+                <label class="inputGroup_label" for="columnDelimiterInput">Column delimiter:</label>
+                <span class="inputTextWrapper">/<input type="text" class="inputText inputText-delimiter inputText-columnDelimiter" id="columnDelimiterInput" placeholder="column delimiter" name="columnDelimiter" value="">/g</span>
+            </div>
+
+            <div class="inputGroup inputGroup-examples">
+                <label class="inputGroup_label" for="examplesList">Examples:</label>
+                <select class="examples" id="examplesList"></select>
             </div>
 
             <div class="author">
@@ -30,7 +35,7 @@
 
         <div class="mainColumn">
             <textarea class="textarea textarea-inputData" placeholder="Input data" name="inputData"></textarea>
-            <textarea class="textarea textarea-template" placeholder="Template" name="template">{{ a }}&#13;&#10;</textarea>
+            <textarea class="textarea textarea-template" placeholder="Template" name="template"></textarea>
             <textarea class="textarea textarea-outputData" name="outputData" placeholder="Output data"></textarea>
         </div>
     </div>
