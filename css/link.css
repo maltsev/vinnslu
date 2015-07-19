@@ -1,0 +1,40 @@
+@define-mixin reset-button {
+    background: none;
+    border: none;
+    font-size: inherit;
+    font-family: inherit;
+    display: inline;
+    padding: 0;
+    outline: none;
+}
+
+.link {
+    $linkColor: #0000ee;
+
+    @mixin reset-button;
+    text-decoration: none;
+    border-bottom: 1px solid color($linkColor whiteness(70%));
+    color: $linkColor;
+
+    $hoverLinkColor: #f07800;
+    &:hover {
+        color: $hoverLinkColor;
+        border-bottom-color: $hoverLinkColor;
+    }
+
+    &:visited {
+        color: #551a8b;
+        border-bottom-color: color(@color whiteness(70%));
+
+        &:hover {
+            color: $hoverLinkColor;
+            border-bottom-color: $hoverLinkColor;
+        }
+    }
+
+    &:active {
+        position: relative;
+        top: 1px;
+        left: 1px;
+    }
+}
