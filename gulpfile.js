@@ -83,6 +83,7 @@ gulp.task("css", function () {
         require("postcss-simple-vars")({ variables: require("./css/vars.js") }),
         require("postcss-property-lookup"),
         require("postcss-color-function"),
+        require("postcss-calc"),
         autoprefixer({browsers: ["> 1%"], cascade: false})
     ];
 
