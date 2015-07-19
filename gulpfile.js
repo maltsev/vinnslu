@@ -78,8 +78,11 @@ gulp.task("watch", function() {
 
 gulp.task("css", function () {
     var processors = [
+        require("postcss-mixins"),
         require("postcss-nested"),
         require("postcss-simple-vars")({ variables: require("./css/vars.js") }),
+        require("postcss-property-lookup"),
+        require("postcss-color-function"),
         autoprefixer({browsers: ["> 1%"], cascade: false})
     ];
 
