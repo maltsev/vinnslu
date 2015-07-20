@@ -1,17 +1,7 @@
-@define-mixin reset-button {
-    background: none;
-    border: none;
-    font-size: inherit;
-    font-family: inherit;
-    display: inline;
-    padding: 0;
-    outline: none;
-}
-
 .link {
     $linkColor: #0000ee;
 
-    @mixin reset-button;
+    @mixin reset_button;
     text-decoration: none;
     border-bottom: 1px solid color($linkColor whiteness(70%));
     color: $linkColor;
