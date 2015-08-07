@@ -1,6 +1,12 @@
 body {
     font-family: monospace;
+    font-size: 13px;
 }
+
+select {
+    cursor: pointer;
+}
+
 
 .container {
     padding: 20px 30px 0;
@@ -19,6 +25,7 @@ body {
 
     &_text {
         font-family: Tahoma, Helvetica, sans-serif;
+        font-size: 32px;
         margin: 0;
     }
 
