@@ -35,7 +35,6 @@ config.browserify = {
     fullPaths: false
 };
 
-
 gulp.task("browserify", function() {
     return browserify(config.browserify)
         .bundle()
@@ -89,6 +88,7 @@ gulp.task("css", function () {
 
     return gulp.src(config.css.src)
         .pipe(postcss(processors))
+        .on('error', function(err){ console.log(err.message); })
         .pipe(addsrc.prepend("./node_modules/normalize.css/normalize.css"))
         .pipe(concat("style.css"))
         .pipe(minifyCss())
