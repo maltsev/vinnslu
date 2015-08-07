@@ -15,8 +15,7 @@ module.exports = {
         border: "none",
         "font-size": "inherit",
         "font-family": "inherit",
-        display: "inline",
-        padding: 0,
-        outline: "none"
+        display: "inline-block",
+        padding: 0
     }
 };
