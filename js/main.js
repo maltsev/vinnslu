@@ -31,6 +31,44 @@ $examples.change(function () {
 
 renderExample(0);
 
+
+var $availableVariables = $(".availableVariables");
+
+$availableVariables.on("click", ".availableVariables_button", function () {
+    var newTemplate = $template.val() + $(this).val();
+    $template.val(newTemplate);
+});
+
+
+
+function renderAvailableVariables() {
+    var inputData = getInputData();
+
+    var availableVariables = _.map(functions.convertRowToTemplateData(inputData[0]), function (value, name) {
+        return {
+            template: "{{ " + name + " }}",
+            name: name,
+            example: _.trim(value)
+        };
+    });
+
+    availableVariables.push({
+        template: "{{ _.random(0, 13) }}",
+        name: "_",
+        example: '<a href="https://lodash.com/docs">lodash</a>'
+    });
+
+    var html = _.reduce(availableVariables, function (html, variable) {
+        return html + '<li class="availableVariables_listItem">' +
+                        '<button class="availableVariables_button" value="' + variable.template + '">' + variable.name + '</button>' +
+                        '<span class="availableVariables_example">' + variable.example + '</span>' +
+                      '</li>';
+    }, "");
+
+    $(".availableVariables_list", $availableVariables).html(html);
+}
+
+
 function renderExample(exampleId) {
     var data = examplesData[exampleId];
     if (! data) {
@@ -47,17 +85,16 @@ function renderExample(exampleId) {
 
 
 function render() {
-    var rowDelimiter = $rowDelimiter.val(),
-        columnDelimiter = $columnDelimiter.val(),
-        inputData = $inputData.val(),
-        templateStr = $template.val();
+    renderAvailableVariables();
 
-    if (! $.trim(inputData)) {
-        $outputData.val("");
+    var templateStr = $template.val();
+    if (! _.trim(templateStr)) {
         return;
     }
 
-    if (! $.trim(templateStr)) {
+    var inputData = getInputData();
+    if (! inputData.length) {
+        $outputData.val("");
         return;
     }
 
@@ -67,10 +104,7 @@ function render() {
         return;
     }
 
-    var rows = functions.splitRows(inputData, rowDelimiter),
-        matrix = functions.splitColumns(rows, columnDelimiter),
-
-        outputData = matrix.reduce(function (outputData, row) {
+    var outputData = inputData.reduce(function (outputData, row) {
             var newOutputData = "";
             try {
                 newOutputData = template(functions.convertRowToTemplateData(row));
@@ -81,4 +115,18 @@ function render() {
         }, "");
 
     $outputData.val(outputData);
+}
+
+
+function getInputData() {
+    var rowDelimiter = $rowDelimiter.val(),
+        columnDelimiter = $columnDelimiter.val(),
+        inputDataRaw = $inputData.val();
+
+    if (! _.trim(inputDataRaw)) {
+        return [];
+    }
+
+    var rows = functions.splitRows(inputDataRaw, rowDelimiter);
+    return functions.splitColumns(rows, columnDelimiter)
 }

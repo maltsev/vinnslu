@@ -29,11 +29,6 @@ body {
 }
 
 
-.author {
-    margin-top: 467px;
-}
-
-
 .mainColumn {
     flex-grow: 1;
 }
@@ -82,5 +77,25 @@ body {
 
     &_label {
         display: block;
+    }
+}
+
+
+.availableVariables {
+    height: 448px;
+
+    &_list {
+        @mixin reset_ul;
+        margin-top: 5px;
+    }
+
+    &_listItem {
+        @mixin reset_li;
+        margin-bottom: 7px;
+    }
+
+    &_example {
+        margin-left: 7px;
+        font-style: italic;
     }
 }

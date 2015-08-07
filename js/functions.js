@@ -21,3 +21,11 @@ exports.convertRowToTemplateData = function (row) {
 
     return data;
 };
+
+
+exports.getAvailableVariables = function () {
+    return [
+        {name: "{{ a }}"},
+        {name: "_", template: "<% _. %>"}
+    ];
+};
