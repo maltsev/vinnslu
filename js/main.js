@@ -37,6 +37,7 @@ var $availableVariables = $(".availableVariables");
 $availableVariables.on("click", ".availableVariables_button", function () {
     var newTemplate = $template.val() + $(this).val();
     $template.val(newTemplate);
+    render();
 });
 
 
