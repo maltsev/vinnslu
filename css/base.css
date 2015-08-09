@@ -89,7 +89,8 @@ select {
 
 
 .availableVariables {
-    height: 448px;
+    min-height: 428px;
+    margin-bottom: 20px;
 
     &_list {
         @mixin reset_ul;
