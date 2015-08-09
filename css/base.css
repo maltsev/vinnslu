@@ -1,3 +1,9 @@
+@define-mixin input-error {
+    color: red;
+    border-color: @color;
+    outline-color: @color;
+}
+
 body {
     font-family: monospace;
     font-size: 13px;
@@ -49,6 +55,10 @@ select {
     width: 100%;
     margin-bottom: 10px;
 
+    &-error {
+        @mixin input-error;
+    }
+
     &-inputData {
         height: 300px;
     }
@@ -65,12 +75,22 @@ select {
 
 .inputTextWrapper {
     display: block;
+
+    &-error {
+        color: red;
+    }
 }
 
 
 .inputText {
+    border: 1px solid #ccc;
+
     &-delimiter {
         width: 50px;
+    }
+
+    &-error {
+        @mixin input-error;
     }
 }
 

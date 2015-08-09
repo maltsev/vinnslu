@@ -44,6 +44,9 @@ $availableVariables.on("click", ".availableVariables_button", function () {
 
 function renderAvailableVariables() {
     var inputData = getInputData();
+    if (! inputData.length) {
+        return;
+    }
 
     var availableVariables = _.map(functions.convertRowToTemplateData(inputData[0]), function (value, name) {
         return {
@@ -56,7 +59,7 @@ function renderAvailableVariables() {
     availableVariables.push({
         template: "{{ _.random(0, 13) }}",
         name: "_",
-        example: '<a href="https://lodash.com/docs">lodash</a>'
+        example: '<a href="https://lodash.com/docs" target="_blank">lodash</a>'
     });
 
     var html = _.reduce(availableVariables, function (html, variable) {
@@ -101,7 +104,9 @@ function render() {
 
     try {
         var template = _.template(templateStr, {interpolate: /{{([\s\S]+?)}}/g});
+        $template.removeClass("textarea-error");
     } catch (e) {
+        $template.addClass("textarea-error");
         return;
     }
 
@@ -109,8 +114,7 @@ function render() {
             var newOutputData = "";
             try {
                 newOutputData = template(functions.convertRowToTemplateData(row));
-            } catch (e) {
-            }
+            } catch (e) {}
 
             return outputData + newOutputData;
         }, "");
@@ -122,7 +126,31 @@ function render() {
 function getInputData() {
     var rowDelimiter = $rowDelimiter.val(),
         columnDelimiter = $columnDelimiter.val(),
-        inputDataRaw = $inputData.val();
+        inputDataRaw = $inputData.val(),
+        invalidObjects = [],
+        validObjects = [];
+
+    try {
+        new RegExp(rowDelimiter, "g");
+    } catch (e) {
+        invalidObjects.push($rowDelimiter);
+    }
+
+    try {
+        new RegExp(columnDelimiter, "g");
+    } catch (e) {
+        invalidObjects.push($columnDelimiter);
+    }
+
+    $(".inputText-delimiter").removeClass("inputText-error").closest(".inputTextWrapper").removeClass("inputTextWrapper-error");
+    if (invalidObjects.length) {
+        invalidObjects.map(function ($obj) {
+            $obj.addClass("inputText-error").closest(".inputTextWrapper").addClass("inputTextWrapper-error");
+        });
+
+        return [];
+    }
+
 
     if (! _.trim(inputDataRaw)) {
         return [];
