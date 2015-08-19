@@ -6,46 +6,9 @@
     <link rel="stylesheet" href="static/style.css?381d4c">
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <div class="logo">
-                <h1 class="logo_text">Vinnslu</h1>
-                <p class="logo_caption">Simple tabular-like data parser</p>
-            </div>
+    <div id="app"></div>
 
-            <div class="inputGroup">
-                <label class="inputGroup_label" for="rowDelimiterInput">Row delimiter:</label>
-                <span class="inputTextWrapper">/<input type="text" class="inputText inputText-delimiter inputText-rowDelimiter" id="rowDelimiterInput" tabindex="3" name="rowDelimiter" value="">/g</span>
-            </div>
-
-            <div class="inputGroup">
-                <label class="inputGroup_label" for="columnDelimiterInput">Column delimiter:</label>
-                <span class="inputTextWrapper">/<input type="text" class="inputText inputText-delimiter inputText-columnDelimiter" id="columnDelimiterInput" tabindex="4" name="columnDelimiter" value="">/g</span>
-            </div>
-
-            <div class="inputGroup inputGroup-examples">
-                <label class="inputGroup_label" for="examplesList">Examples:</label>
-                <select class="examples" tabindex="5" id="examplesList"></select>
-            </div>
-
-            <div class="availableVariables">
-                Available variables:
-                <ul class="availableVariables_list"></ul>
-            </div>
-
-            <div class="author">
-                <a href="https://github.com/maltsev" class="link author_name">Kirill Maltsev</a>
-            </div>
-        </div>
-
-        <div class="mainColumn">
-            <textarea class="textarea textarea-inputData" tabindex="1" placeholder="Input data" name="inputData"></textarea>
-            <textarea class="textarea textarea-template" tabindex="2" placeholder="Template" name="template"></textarea>
-            <textarea class="textarea textarea-outputData" tabindex="6" name="outputData" placeholder="Output data"></textarea>
-        </div>
-    </div>
-
-    <script src="static/main.js?422d11b"></script>
+    <script src="static/index.js?34836f"></script>
 
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
